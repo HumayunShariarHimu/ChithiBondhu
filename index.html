@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ChithiBondhu | Multi-Messenger</title>
+    <style>
+        :root {
+            --neon-color: #00f2ff;
+            --bg-dark: #0a0b10;
+            --card-bg: #161b22;
+            --accent-gradient: linear-gradient(45deg, #00f2ff, #007bff);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            margin: 0;
+            padding: 10px;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header-container {
+            text-align: center;
+            padding: 30px 10px;
+            background: radial-gradient(circle at top, rgba(0, 242, 255, 0.1) 0%, transparent 70%);
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem); /* Responsive font size */
+            color: #fff;
+            text-transfor;
+            letter-spacing: 3px;
+            margin: 0;
+            text-shadow: 0 0 10px var(--neon-color), 0 0 20px var(--neon-color);
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { opacity: 0.8; transform: scale(1); }
+            to { opacity: 1; transform: scale(1.02); }
+        }
+
+        .stats {
+            font-size: 0.9rem;
+            color: var(--neon-color);
+            margin-top: 15px;
+            padding: 8px 15px;
+            border-radius: 50px;
+            background: rgba(0, 242, 255, 0.1);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+            display: inline-block;
+        }
+
+        /* Responsive Grid */
+        .grid-container {
+            display: grid;
+            /* মোবাইল ফ্রেন্ডলি গ্রিড লজিক */
+            grid-template-columns: repeat(auto-fill, minmax(100%, 1fr)); 
+            gap: 20px;
+            max-width: 1400px;
+            margin: 20px auto;
+        }
+
+        /* Tablet and Desktop view */
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+                padding: 20px;
+            }
+        }
+
+        /* Card Design */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 550px; /* Fixed height for consistency */
+        }
+
+        .card:hover {
+            border-color: var(--neon-color);
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.2);
+        }
+
+        .card-header {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .user-badge {
+            background: var(--accent-gradient);
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Iframe Styling */
+        .iframe-wrapper {
+            flex-grow: 1;
+            background: #fff;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            /* স্মুথ স্ক্রলিং নিশ্চিত করা */
+            -webkit-overflow-scrolling: touch; 
+        }
+
+        /* Loading Animation inside card */
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            color: #ccc;
+            font-size: 0.8rem;
+        }
+
+        /* Hide Scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-color);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h1>ChithiBondhu</h1>
+        <div class="stats" id="stats">ইনিশিয়ালাইজিং...</div>
+    </div>
+
+    <div class="grid-container" id="iframe-grid">
+        </div>
+
+    <script>
+        // আপনার দেওয়া সমস্ত ইউজারনেম এখানে
+        const fullContent = `HumayunShariarHimu jdhidooy mahdi120 sabuu therahat Deb77 missmisti MirTanjilAhmad NAYEEMAROSHNI jijooo abiraryan TohaOfficial77 shrinika99 Raisa Subhasree durjoydasp2022 R_Tahsin tanzeenaakterlata S_o_m_a ahmedshoaibkh kkp Imo MWJAMAN mdibrahim200 sh4jid fatema_shimu rA_yHaN Love143 sheikhshaharia arfy07 sabbir1996 Shreya_2k MINHAJURRM kaisar avijit_avi Sonambanerjee mdhamimmunshi RakibM TafhimulJannat07 SalmanShakib jannat800 Jobaer_hossain tanvirhasan2002 Emoic itssayem DookhieAurat _saad_ Sohanur _________sougata_____ Taha26 jolhas_sarkar writershahidulislam ShahinurAkther naima1 simu65 Hudaiajaira A12345678 Himeel MadhuriDebnath700 AdhiraajBanerjee ema018 Badhon911 fahadsalman saiful_islam_sifu skafi JoyetaMollick Waseemorenai pakhidas jineshop LabonnoTelecom nafiu emam253 Modhuchondrima sumaiyaaashanta sheikhmuntaqimahmed sajidashabnur raisuphul Mahbubaa_khatun tarikur_rahman Nil23 Nooraa cithi_me Ebong_Ipsita homaira05 Andalib makamemaria Soumik666 Musfiq HossainAl_mishba Sobujalom talha_sorif138 IshaniGanguly Mohsin123 2hin jonehossainkabbo MoonKnight0001 Your_Story_25 youareanotherme Saifi Sayidur_Rahman foodinframe fahim tanjimtanhiyatshoily1 tatiny879 ANWOYGUPTA Chitu Ahe Sazim MaishaMou Latter Tahminakhanamjoya NAHU1 NanzibaPrionty SubirBiswas JhumCh SadiyaSaifa skrakib99 Ashrafivai Piyasi Pavel11 Guinea arhina jamilaaminzarq Jharnah Ewr dewongrass anonymous2 musfiqulmirazchy mkhamim rifa20 FarhanaSalmanMou your_own tkr88 Maahir Sourini_Sri_Karmakar Eruuu6997 Rivu_Rivs Nusupakhi9357 Tanhatithi jfaru shishir_official tasfiyatarannum XubayedNahid1 mdelias35 abbuammurrajkumar farukahammad BelayetHossain rashedvai Shariflogohut Meherunnessa23 shekh __nuha__ LetterBird _sumanowhere tamim559 TamannaBinteyAlam riamoon kawsar1000 zainab1299 AhmedReza sh_tamima Sadiasharmintithi Tanvir012 thithi gopeshdu paramaniknandita Saisaima niro_b mayanil Marufulislam yameenmaruf woaw Abarna Sinharahmansaiful misayed b3ee subhambaral zobayerhossain Sutanus ismath123 soma1995 hasanriadqadri rakibulislamrifat Afsana_meme Lammii happy_Life Inshirah.official77 JFSMIYA titas.s Zulfikar.92 anika.sultana birangana.02 chithime.Antara letter.lover Md.Raihan nusrat.yesmin Amimul.cithi ami.nafisa postapis Sagar234 MSAhmed-198 misbah97 ebrahimalmojahid musanna Najefa Mrinmoy_Rahim himadree17 arafat1819 username rudh hemelmahmud RubiAkter nursalman Diyapuchki ani oputanvir rakibrana77 amirulislam1234 imbabu miqdad23 RezaulkarimAdmin rifatt mcfnchoton jaedarman Giffu ankon151107 jiko19 SinghRaj addriahmed tonniislam Dimple Joy5693 muin69 s1a2j3j4a5d6 momen10 Diyathemythicalfairy Meduu The_Ezaz_Mahmud_ shozib28 phaarishtaahaayyaat amiJahid Nihu_25 ArPiTa26 jamelakarini snavid _habib_12 shyamolika_gogoi_ anis1234 ipsitasaha maeflower durjoybaraij tai1 pringonaprima acid1only MahabubShuvo tansaura Dishaaaa writeToSunreeta numoma nishatarab mahirameem24 SyedAsif Fahmoni subhradipa Shayokh nahidhasn mahmudabdullah writer_Tabassume mujahidsourav nahida_nupur_37 Pudina01 Ziyadah Mursalin003 rakibkazi somi1234 Nightangel reshadbhai04 ashrafuuuul Mehedihasanrazu997717 megna MeghK Mamun3359 chithi mariyabinte mdmyenu Fahmidashova SouravAdhikary tanvir44 tumarjonno Ashraf5007 susmitapurabi iliassk admin mamun19 Hummingbird23 AbhinabaBasak chottosunny rofik`;
+
+        // ডুপ্লিকেট বাদ দিয়ে ইউনিক ইউজারনেম এক্সট্রাক্ট করা
+        const usernames = [...new Set(fullContent.split(/\s+/))].filter(u => u.length > 2);
+        
+        const container = document.getElementById('iframe-grid');
+        const stats = document.getElementById('stats');
+        stats.innerText = `Total Friends Active: ${usernames.length}`;
+
+        usernames.forEach(user => {
+            const card = document.createElement('div');
+            card.className = 'card';
+
+            const header = document.createElement('div');
+            header.className = 'card-header';
+            header.innerHTML = `<span class="user-badge">@${user}</span>`;
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'iframe-wrapper';
+            wrapper.innerHTML = `<div class="loader">Loading ${user}'s box...</div>`;
+
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://chithi.me/${user}`;
+            iframe.loading = "lazy";
+            
+            // আইফ্রেম লোড হলে লোডার হাইড করার ছোট ট্রিক
+            iframe.onload = function() {
+                this.previousSibling.style.display = 'none';
+            };
+
+            wrapper.appendChild(iframe);
+            card.appendChild(header);
+            card.appendChild(wrapper);
+            container.appendChild(card);
+        });
+    </script>
+</body>
+</html>
