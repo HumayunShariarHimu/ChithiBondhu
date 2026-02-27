@@ -1,2 +1,2 @@
-# Chithi
-Chithi.me UserData
+# ChithiBondhu
+ChithiBondhu Network
